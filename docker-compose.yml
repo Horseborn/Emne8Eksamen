@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   products-api:
-    build: ./products-api
+    image: horseborn/products-api:latest
     container_name: products-api
     restart: always
     ports:
@@ -31,7 +31,7 @@ services:
       - backend-network
 
   products-web:
-    build: ./products-web
+    image: horseborn/products-web:latest
     container_name: products-web
     restart: always
     ports:
