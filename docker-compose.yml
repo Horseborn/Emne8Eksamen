@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  products-api:
+    build: ./products-api
+    container_name: products-api
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - products-db
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=products-db;Database=product_db;User=product-api;Password=securepass;
+    networks:
+      - backend-network
+
+  products-db:
+    build: ./products-db
+    container_name: products-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: securepass
+      MYSQL_DATABASE: product_db
+      MYSQL_USER: product-api
+      MYSQL_PASSWORD: securepass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - backend-network
+
+  products-web:
+    build: ./products-web
+    container_name: products-web
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - products-api
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+
+volumes:
+  mysql-data:
