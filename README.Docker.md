@@ -115,3 +115,17 @@ Du skal nå kunne bruke denne curl kommandoen til å spørre mot apiet
 10. Ved behov for feilsøking kan docker loggen være ett godt sted å starte, bruk kommandoen nedenfor for å vise logg
 
 `docker logs products-api --tail 50/100`
+
+### Prosjekt Linker
+
+### Docker hub:
+
+- https://hub.docker.com/repository/docker/horseborn/products-api/general
+- https://hub.docker.com/repository/docker/horseborn/products-web/general
+
+### Github prosjekt link
+
+- https://github.com/Horseborn/Emne8Eksamen
+
+![Isaac, thumbs up](https://media.tenor.com/6VBWwSJMRhEAAAAe/thumbs-up-tboi.png)
+
